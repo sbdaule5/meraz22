@@ -1,7 +1,7 @@
 <script>
-	import 'lite-youtube-embed/src/lite-yt-embed.css';
+	//import 'lite-youtube-embed/src/lite-yt-embed.css';
 	import { onMount } from 'svelte';
-	onMount(() => import('lite-youtube-embed/src/lite-yt-embed'));
+	// onMount(() => import('lite-youtube-embed/src/lite-yt-embed'));
 </script>
 
 <svelte:head>

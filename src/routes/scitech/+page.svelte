@@ -1,5 +1,5 @@
 <script>
-	import culturals from './scitech/scitech.json';
+	import culturals from './scitech.json';
 </script>
 
 <svelte:head>

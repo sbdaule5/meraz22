@@ -1,5 +1,5 @@
 <script>
-	import culturals from './informal/informal.json';
+	import culturals from './informal.json';
 </script>
 
 <svelte:head>

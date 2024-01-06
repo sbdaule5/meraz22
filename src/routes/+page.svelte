@@ -1,6 +1,6 @@
 <script>
 	import Hero from './_Hero.svelte';
-	import 'lite-youtube-embed/src/lite-yt-embed.css';
+  import LiteYouTube from 'svelte-lite-youtube-embed'
 	import Timer from './_Timer.svelte';
 </script>
 
@@ -21,7 +21,8 @@
 	</div>
   <div class="timer">
     <Timer />
-    <div class="trailer"><a href="https://www.youtube.com/watch?v=iDtwPVqDfkA">Trailer Out now</a></div>
+    <div class="trailer">
+      <a href="https://www.youtube.com/watch?v=iDtwPVqDfkA">Trailer Out now</a></div>
   </div>
   
 	<img alt="not found" style="display: inline-block" class="newmeraz" src="/assets/newmeraz.png"  srcset="">

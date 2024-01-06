@@ -1,5 +1,5 @@
 <script>
-	import culturals from './pronite/pronite.json';
+	import culturals from './culturals.json';
 </script>
 
 <svelte:head>
@@ -14,13 +14,13 @@
 	<div class="meraz">
 		<img alt="not found" class="merazimg" src="/assets/meraz_white.png">
 	</div>
-	<h1 class="event">PRONITE</h1>
+	<h1 class="event">CULTURALS</h1>
 	<div class="parent">
 		
 		{#each culturals as name}
 			<div>
 				<div class="content" id={name.name}>
-					<a class="event-item" style="cursor: pointer;">
+					<a class="event-item" href={`/culturals/${name.name}`} style="cursor: pointer;">
 						<div class="content-overlay" />
 						<img alt="not found" class="event-img" src={`/assets/event-images/${name.name}.jpg`}  />
 						<div class="content-details fadeIn-top">
@@ -38,7 +38,7 @@
 
 <style lang="scss">
 	.bodyy{
-		background-image:url(/assets/Pronite.png);
+		background-image:url(/assets/bg_cult.png);
 		padding-bottom: 200px;
 		background-attachment: fixed;
 		background-size: cover;
@@ -52,13 +52,14 @@
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
-	}.event{
+	}
+	.event{
 		font-family: 'Oswald', sans-serif;
 		font-weight: bolder;
 		font-size: 100px;
 		position: absolute;
-		left:40%;
-		top:10%;
+		left:35%;
+		top:2%;
 		margin:0%;
 	}
 	.content {
@@ -75,7 +76,7 @@
 	.content .content-overlay {
 		background: rgba(0, 0, 0, 0.7);
 		position: absolute;
-		height: 100%;
+		height: 99%;
 		width: 100%;
 		left: 0;
 		top: 0;
@@ -90,7 +91,7 @@
 	.content:hover .content-overlay {
 		opacity: 1;
 	}
-	$yellow: gold;
+	$yellow: rgb(61, 104, 191);
 
 	$border-width: 5px;
 
@@ -99,7 +100,68 @@
 		transition: 0.5s color ease-in-out;
 
 		// Change text color to $yellow on hover
-		
+		// &:hover {
+		// 	color: $yellow;
+		// }
+
+		// Start ::after in same position as ::before
+		&::before,
+		&::after {
+			box-sizing: inherit;
+			content: '';
+			position: absolute;
+			border: $border-width solid transparent;
+			border-radius: 0px;
+			width: 0;
+			height: 0;
+			top: 0;
+			left: 0;
+		}
+
+		//   Change dimensions on hovering
+		&:hover::before,
+		&:hover::after {
+			width: 100%;
+			height: 100%;
+		}
+
+		&::before,
+		&::after {
+			width: 0%;
+			height: 0%;
+
+			border-width: 0px;
+			border-style: solid;
+			border-image: linear-gradient(180deg, #28b3e9, yellow, yellow, #28b3e9) 1 round;
+		}
+
+		&::before {
+			transition: width 0s ease-out 0s,
+				// Width expands first
+				height 0s ease-out,
+				border-width 0s ease-out 0s;
+		}
+
+		&::after {
+			transition: // Animate height first, then width
+				height 0s ease-out 0s, width 0s ease-out, border-width 0s ease-out 0s;
+		}
+		// Change colors
+		&:hover::before {
+			border-width: $border-width ;
+			// -webkit-transition: border-radius 1s;
+			// Commented for now transition
+			transition: width 0s ease-out,
+				// Width expands first
+				height 0s ease-out 0;
+			//   border-radius 0.6s; // And then height
+		}
+
+		&:hover::after {
+			border-width: $border-width $border-width $border-width $border-width;
+			transition: // Animate height first, then width
+				height 0s ease-out, width 0s ease-out 0s;
+		}
 	}
 
 	.content-image {
@@ -177,7 +239,7 @@
 		font-family: 'Audiowide', cursive;
 		color: transparent;
 		// background: -webkit-linear-gradient(#7ce7ec, rgb(8, 109, 172), blue);
-		background: white;
+		background: black;
 		background-clip: text;
 		padding-left: 2vw;
 		-webkit-background-clip: text;
@@ -188,7 +250,7 @@
 		height: 150%;
 		object-fit: contain;
 
-		//border: #7ce7ec 2px ridge;
+		// //border: #7ce7ec 2px ridge;
 		// border-radius: 10px;
 		cursor: pointer;
 	}
@@ -230,7 +292,7 @@
 		top:7%;
 		height:100vh;
 		width:200px;
-		background-color: #502b8c;
+		background-color: #01313F;
 	}
 	h1{
 		padding: 0;
@@ -250,13 +312,17 @@
 		}
 		.event{
 			position: absolute;
-				left:20%;
+				left:12%;
 				padding-top: 10%;
-				top:5%;
+				top:1%;
 				font-size: 70px;
 		}
 		$border-width: 0px;
-		
+		// .event-item {
+		// 	border-width: 2px;
+		// 	border-style: solid;
+		// 	border-image: linear-gradient(180deg, #ff2600, yellow, yellow, #ff2600) 1 round;
+		// }
 		.meraz{
 			position: absolute;
 			width:30px;
@@ -276,4 +342,3 @@
 	}
 	// $border-width: 2px;
 </style>
-

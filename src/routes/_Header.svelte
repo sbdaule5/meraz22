@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	import Fa from 'svelte-fa/src/fa.svelte';
 	import { faBars } from '@fortawesome/free-solid-svg-icons';
 	import { sidebarOpen } from '$lib/stores';
@@ -44,7 +44,7 @@
 			<a href="https://docs.google.com/forms/d/e/1FAIpQLSdVrwsIUO-_cpOIcANsYEnIkhzIroS8HoFADNup8s6DztpYRw/viewform">Accomodation </a>
 		</li>
 		<li style={`background-color: ${txtColor}; `} class="part7"> 
-			<a href="/sponshorship">Sponsors </a>
+			<a href="/sponsors">Sponsors </a>
 		</li>
 		<li style={`background-color: ${txtColor}; `} class="part4"> 
 			<a href="/about">About</a>

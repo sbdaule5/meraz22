@@ -1,4 +1,6 @@
 <script context="module">
+
+	export const prerender = true;
 	export const load = async ({ params }) => ({
 		props: {
 			key: params.path,
